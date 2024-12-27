@@ -8,23 +8,5 @@ interface Posts {
 }
 
 export default async function Page() {
-   const data = await fetch("https://api.vercel.app/blog", {
-      cache: "force-cache",
-      next: {
-         revalidate: 30,
-         tags: ["posts"],
-      },
-   });
-
-   const posts: Posts[] = await data.json();
-
-   return (
-      <ul>
-         {posts.map((post) => (
-            <li data-testid="post-item" key={post.id}>
-               {post.title}
-            </li>
-         ))}
-      </ul>
-   );
+   return <></>;
 }

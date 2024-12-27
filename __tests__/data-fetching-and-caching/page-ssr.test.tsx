@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Page from "../../app/data-fetching-and-caching/page";
+import Page from "../../app/data-fetching-and-caching/page-ssr";
 
 const fixture_post = [
    {
@@ -20,7 +20,7 @@ const fixture_post = [
    },
 ];
 
-describe("Page", () => {
+describe("Page Server Components", () => {
    beforeAll(() => {
       global.fetch = jest.fn();
    });
