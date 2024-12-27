@@ -23,15 +23,15 @@ const fixture_post = [
 describe("Page Server Components", () => {
    beforeAll(() => {
       global.fetch = jest.fn();
+
+      (global.fetch as jest.Mock).mockResolvedValue({
+         json: jest.fn().mockReturnValue(fixture_post),
+      });
    });
 
    afterAll(() => jest.resetAllMocks());
 
-   it("Deve apontar para o endpoint correto da api de posts e configurar o DataCache corretamente", async () => {
-      (global.fetch as jest.Mock).mockResolvedValue({
-         json: jest.fn().mockReturnValue(fixture_post),
-      });
-
+   it("Deve configurar o endpoint correto da api de posts e configurar o DataCache corretamente", async () => {
       render(await Page());
 
       expect(global.fetch).toHaveBeenCalledWith("https://api.vercel.app/blog", {
@@ -44,14 +44,8 @@ describe("Page Server Components", () => {
    });
 
    it("Deve renderizar os posts", async () => {
-      (global.fetch as jest.Mock).mockResolvedValue({
-         json: jest.fn().mockReturnValue(fixture_post),
-      });
-
       render(await Page());
-
       const posts = screen.getAllByTestId("post-item");
-
       expect(posts.length).toBeGreaterThanOrEqual(0);
    });
 });
