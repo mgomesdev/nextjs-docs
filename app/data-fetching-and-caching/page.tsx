@@ -1,12 +1,5 @@
-interface Posts {
-   id: number;
-   title: string;
-   content: string;
-   author: string;
-   date: string;
-   category: string;
-}
+import PageClient from "./page-client";
 
 export default async function Page() {
-   return <></>;
+   return <PageClient />;
 }
