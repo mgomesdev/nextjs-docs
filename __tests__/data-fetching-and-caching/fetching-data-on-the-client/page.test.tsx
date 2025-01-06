@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import fixture_post from "../../fixtures/posts";
+import { getFixturePosts } from "../../fixtures/posts";
 import Page from "app/data-fetching-and-caching/fetching-data-on-the-client/page";
 
 global.fetch = jest.fn();
@@ -21,7 +21,7 @@ describe("Page Client Components", () => {
 
    it("Deve renderizar a lista de posts após buscar os dados", async () => {
       (fetch as jest.Mock).mockResolvedValue({
-         json: async () => fixture_post,
+         json: async () => Array.from(getFixturePosts()),
       });
 
       render(<Page />);

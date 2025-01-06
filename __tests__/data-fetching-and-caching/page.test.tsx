@@ -7,8 +7,8 @@ describe("Deve renderizar o Page corretamente", () => {
 
       const links = screen.getAllByRole("link");
 
-      expect(links[0]).toHaveAttribute("href", "/data-fetching-and-caching//fetching-data-on-the-client");
-      expect(links[1]).toHaveAttribute("href", "/data-fetching-and-caching//fetching-data-on-the-server");
-      expect(links[2]).toHaveAttribute("href", "/data-fetching-and-caching//reusing-data-across-multiple-functions");
+      expect(links[0]).toHaveAttribute("href", "/data-fetching-and-caching/fetching-data-on-the-client");
+      expect(links[1]).toHaveAttribute("href", "/data-fetching-and-caching/fetching-data-on-the-server");
+      expect(links[2]).toHaveAttribute("href", "/data-fetching-and-caching/reusing-data-across-multiple-functions");
    });
 });

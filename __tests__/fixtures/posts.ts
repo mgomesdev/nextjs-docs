@@ -17,4 +17,5 @@ const fixture_post = [
    },
 ];
 
-export default fixture_post;
+export const getFixturePosts = () => fixture_post;
+export const getFixturePostByIndex = (index: number) => fixture_post[index];

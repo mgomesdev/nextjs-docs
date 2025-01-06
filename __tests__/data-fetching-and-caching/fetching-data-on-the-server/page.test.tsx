@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import fixture_post from "../../fixtures/posts";
+import { getFixturePosts } from "../../fixtures/posts";
 import Page from "app/data-fetching-and-caching/fetching-data-on-the-server/page";
 
 describe("Page Server Components", () => {
@@ -7,7 +7,7 @@ describe("Page Server Components", () => {
       global.fetch = jest.fn();
 
       (global.fetch as jest.Mock).mockResolvedValue({
-         json: jest.fn().mockReturnValue(fixture_post),
+         json: jest.fn().mockReturnValue(Array.from(getFixturePosts())),
       });
    });
 
