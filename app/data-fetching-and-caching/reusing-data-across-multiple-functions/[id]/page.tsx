@@ -10,9 +10,9 @@ interface PageProps {
 async function Page({ params }: PageProps) {
    const { id } = await params;
 
-   const post = await getPost(id);
+   const { data: post } = await getPost(id);
 
-   if (!post) notFound();
+   if (!post.id) notFound();
 
    return (
       <article>

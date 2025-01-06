@@ -15,7 +15,9 @@ export async function getPost(id: string) {
       }
    );
 
-   const post: Post = await res.json();
+   const post = (await res.json()) as {
+      data: Post;
+   };
 
    return post;
 }

@@ -5,7 +5,7 @@ jest.mock("../../../../app/data-fetching-and-caching/reusing-data-across-multipl
 
 describe("getPost", () => {
    it("Deve retornar os posts", async () => {
-      const mockPost = Object.assign({}, Object.assign({}, getFixturePostByIndex(0)));
+      const mockPost = Object.assign({}, getFixturePostByIndex(0));
 
       (getPost as jest.Mock).mockResolvedValue(mockPost);
 
@@ -13,4 +13,6 @@ describe("getPost", () => {
 
       expect(post).toEqual(mockPost);
    });
+
+   it.todo("Deve verificar se está configurado para forçar o cache");
 });
