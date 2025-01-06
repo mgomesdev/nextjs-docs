@@ -1,22 +1,14 @@
 import { act, render, screen } from "@testing-library/react";
 import Page from "app/data-fetching-and-caching/page";
 
-global.fetch = jest.fn();
-
 describe("Deve renderizar o Page corretamente", () => {
-   afterEach(() => jest.clearAllMocks());
+   it("Deve renderizar os links corretamente", () => {
+      render(<Page />);
 
-   it("Deve renderizar o PageClient", async () => {
-      (fetch as jest.Mock).mockResolvedValue({
-         json: async () => {
-            return {
-               data: [],
-            };
-         },
-      });
+      const links = screen.getAllByRole("link");
 
-      await act(async () => render(await Page()));
-
-      expect(screen.getByTestId("page-client")).toBeInTheDocument();
+      expect(links[0]).toHaveAttribute("href", "/fetching-data-on-the-client");
+      expect(links[1]).toHaveAttribute("href", "/fetching-data-on-the-server");
+      expect(links[2]).toHaveAttribute("href", "/reusing-data-across-multiple-functions");
    });
 });
