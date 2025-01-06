@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import Page from "../../app/data-fetching-and-caching/page-ssr";
-import fixture_post from "../fixtures/posts";
+import fixture_post from "../../fixtures/posts";
+import Page from "app/data-fetching-and-caching/fetching-data-on-the-server/page";
 
 describe("Page Server Components", () => {
    beforeAll(() => {

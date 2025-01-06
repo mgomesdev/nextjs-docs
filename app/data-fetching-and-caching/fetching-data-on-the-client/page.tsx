@@ -11,7 +11,7 @@ interface Posts {
    category: string;
 }
 
-function PageClient() {
+function Page() {
    const [posts, setPosts] = useState<Posts[] | null>(null);
 
    useEffect(() => {
@@ -40,4 +40,4 @@ function PageClient() {
    );
 }
 
-export default PageClient;
+export default Page;
