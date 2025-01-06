@@ -7,7 +7,7 @@ describe("Page Server Components", () => {
       global.fetch = jest.fn();
 
       (global.fetch as jest.Mock).mockResolvedValue({
-         json: jest.fn().mockReturnValue(Array.from(getFixturePosts())),
+         json: jest.fn().mockReturnValue(getFixturePosts()),
       });
    });
 

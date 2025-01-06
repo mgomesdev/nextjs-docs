@@ -20,7 +20,7 @@ describe("reusing-dat-aacross-multiple functions: route handler posts", () => {
       const mockParams = Promise.resolve({ id: "7" });
       const url = `https://api.vercel.app/blog/${(await mockParams).id}`;
       const mockRequest = new Request(url);
-      const mockData = Object.assign({}, getFixturePostByIndex(0));
+      const mockData = getFixturePostByIndex(0);
 
       (fetch as jest.Mock).mockResolvedValue({
          json: jest.fn().mockResolvedValue(mockData),

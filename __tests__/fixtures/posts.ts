@@ -18,4 +18,4 @@ const fixture_post = [
 ];
 
 export const getFixturePosts = () => fixture_post;
-export const getFixturePostByIndex = (index: number) => fixture_post[index];
+export const getFixturePostByIndex = (index: number) => Object.assign({}, fixture_post[index]);

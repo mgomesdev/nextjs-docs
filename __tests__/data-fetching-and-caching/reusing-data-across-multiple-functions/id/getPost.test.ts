@@ -5,7 +5,7 @@ jest.mock("../../../../app/data-fetching-and-caching/reusing-data-across-multipl
 
 describe("getPost", () => {
    it("Deve retornar os posts", async () => {
-      const mockPost = Object.assign({}, getFixturePostByIndex(0));
+      const mockPost = getFixturePostByIndex(0);
 
       (getPost as jest.Mock).mockResolvedValue(mockPost);
 

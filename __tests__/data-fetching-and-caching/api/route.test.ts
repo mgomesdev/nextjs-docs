@@ -11,7 +11,7 @@ describe("data-fetching-and-caching route handler posts", () => {
    afterEach(() => jest.clearAllMocks());
 
    it("Deve retornar os posts", async () => {
-      const mockPosts = Array.from(getFixturePosts());
+      const mockPosts = getFixturePosts();
       (fetch as jest.Mock).mockResolvedValue({
          ok: true,
          json: jest.fn().mockResolvedValue(mockPosts),

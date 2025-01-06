@@ -21,7 +21,7 @@ describe("Page Client Components", () => {
 
    it("Deve renderizar a lista de posts após buscar os dados", async () => {
       (fetch as jest.Mock).mockResolvedValue({
-         json: async () => Array.from(getFixturePosts()),
+         json: async () => getFixturePosts(),
       });
 
       render(<Page />);
