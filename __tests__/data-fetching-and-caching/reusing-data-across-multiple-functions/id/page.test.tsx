@@ -42,7 +42,9 @@ describe("Page: [id]", () => {
       expect(notFound).toHaveBeenCalledTimes(1);
    });
 
-   it.todo("Deve testar o generateStaticParams");
+   it("Deve testar o generateStaticParams", () => {
+      throw "Parei aqui, deverá testar o gerenetaStaticParams e seguir com todos os todos";
+   });
 
    it.todo("Deve testar o generateMetadata");
 });
