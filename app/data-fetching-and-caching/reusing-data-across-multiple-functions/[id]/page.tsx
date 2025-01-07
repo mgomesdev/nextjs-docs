@@ -1,11 +1,55 @@
 import { notFound } from "next/navigation";
-import { getPost } from "./getPost";
+import PostSchema from "../schemas/PostSchema";
+import { Metadata, ResolvingMetadata } from "next";
+import { Author } from "next/dist/lib/metadata/types/metadata-types";
 
-export type PageParams = Promise<{ id: string }>;
+export async function generateStaticParams() {
+   const posts = await fetch("http://localhost:3000/data-fetching-and-caching/api", {
+      cache: "force-cache",
+   }).then((resolve) => resolve.json());
 
-interface PageProps {
-   params: PageParams;
+   return posts.map((post: PostSchema) => {
+      return {
+         id: String(post.id),
+      };
+   });
 }
+
+async function getPost(id: string) {
+   const res = await fetch(
+      `http://localhost:3000/data-fetching-and-caching/reusing-data-across-multiple-functions/${id}/api`,
+      {
+         cache: "force-cache",
+      }
+   );
+
+   const post = (await res.json()) as {
+      data: PostSchema;
+   };
+
+   return post;
+}
+
+interface GenerateMetadataProps {
+   params: Promise<{ id: string }>;
+   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
+
+export async function generateMetadata(
+   { params, searchParams }: GenerateMetadataProps,
+   parent: ResolvingMetadata
+): Promise<Metadata> {
+   const { id } = await params;
+   const post = await getPost(id);
+
+   return {
+      title: post.data.title,
+      description: post.data.content,
+      authors: post.data.author as Author,
+   };
+}
+
+interface PageProps extends GenerateMetadataProps {}
 
 async function Page({ params }: PageProps) {
    const { id } = await params;
