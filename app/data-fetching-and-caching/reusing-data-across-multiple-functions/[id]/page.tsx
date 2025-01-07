@@ -15,21 +15,6 @@ export async function generateStaticParams() {
    });
 }
 
-async function getPost(id: string) {
-   const res = await fetch(
-      `http://localhost:3000/data-fetching-and-caching/reusing-data-across-multiple-functions/${id}/api`,
-      {
-         cache: "force-cache",
-      }
-   );
-
-   const post = (await res.json()) as {
-      data: PostSchema;
-   };
-
-   return post;
-}
-
 interface GenerateMetadataProps {
    params: Promise<{ id: string }>;
    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -49,6 +34,20 @@ export async function generateMetadata(
    };
 }
 
+async function getPost(id: string) {
+   const res = await fetch(
+      `http://localhost:3000/data-fetching-and-caching/reusing-data-across-multiple-functions/${id}/api`,
+      {
+         cache: "force-cache",
+      }
+   );
+
+   const post = (await res.json()) as {
+      data: PostSchema;
+   };
+
+   return post;
+}
 interface PageProps extends GenerateMetadataProps {}
 
 async function Page({ params }: PageProps) {

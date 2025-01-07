@@ -1,8 +1,10 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { getFixturePostByIndex } from "__tests__/fixtures/posts";
 import Page, {
+   generateMetadata,
    generateStaticParams,
 } from "app/data-fetching-and-caching/reusing-data-across-multiple-functions/[id]/page";
+import { ResolvedMetadata } from "next";
 import { notFound } from "next/navigation";
 
 global.fetch = jest.fn();
@@ -54,5 +56,17 @@ describe("Page: [id]", () => {
       });
    });
 
-   it.todo("Deve testar o generateMetadata");
+   it("Deve testar o generateMetadata", async () => {
+      (fetch as jest.Mock).mockResolvedValue({
+         json: jest.fn().mockResolvedValue({ data: mockPost }),
+      });
+
+      const metadata = await generateMetadata({ params, searchParams });
+
+      expect(metadata).toEqual({
+         title: mockPost.title,
+         description: mockPost.content,
+         authors: mockPost.author,
+      });
+   });
 });
