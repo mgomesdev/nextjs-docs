@@ -25,6 +25,14 @@ describe("Page: [id]", () => {
 
       render(await Page({ params, searchParams }));
 
+      const { id } = await params;
+
+      expect(fetch).toHaveBeenCalledWith(
+         `http://localhost:3000/data-fetching-and-caching/reusing-data-across-multiple-functions/${id}/api`,
+         {
+            cache: "force-cache",
+         }
+      );
       expect(await screen.findByText(mockPost.title)).toBeInTheDocument();
       expect(await screen.findByText(mockPost.content)).toBeInTheDocument();
    });
