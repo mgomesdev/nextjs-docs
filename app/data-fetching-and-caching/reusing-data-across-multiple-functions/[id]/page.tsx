@@ -6,7 +6,7 @@ import { Author } from "next/dist/lib/metadata/types/metadata-types";
 export async function generateStaticParams() {
    const posts = await fetch("http://localhost:3000/data-fetching-and-caching/api", {
       cache: "force-cache",
-   }).then((resolve) => resolve.json());
+   }).then((resolve) => resolve.json() as Promise<PostSchema[]>);
 
    return posts.map((post: PostSchema) => {
       return {

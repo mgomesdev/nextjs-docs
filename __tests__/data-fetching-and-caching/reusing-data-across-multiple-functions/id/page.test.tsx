@@ -1,6 +1,8 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { getFixturePostByIndex } from "__tests__/fixtures/posts";
-import Page from "app/data-fetching-and-caching/reusing-data-across-multiple-functions/[id]/page";
+import Page, {
+   generateStaticParams,
+} from "app/data-fetching-and-caching/reusing-data-across-multiple-functions/[id]/page";
 import { notFound } from "next/navigation";
 
 global.fetch = jest.fn();
@@ -14,10 +16,9 @@ describe("Page: [id]", () => {
 
    const params = Promise.resolve({ id: "123" });
    const searchParams = Promise.resolve({ undefined });
+   const mockPost = getFixturePostByIndex(0);
 
    it("Deve renderizar as informações do post", async () => {
-      const mockPost = getFixturePostByIndex(0);
-
       (fetch as jest.Mock).mockResolvedValue({ json: jest.fn().mockResolvedValue({ data: mockPost }) });
 
       render(await Page({ params, searchParams }));
@@ -40,7 +41,18 @@ describe("Page: [id]", () => {
       expect(notFound).toHaveBeenCalledTimes(1);
    });
 
-   it.todo("Deve testar o generateStaticParams");
+   it("Deve testar o generateStaticParams corretamente", async () => {
+      (fetch as jest.Mock).mockResolvedValue({
+         json: jest.fn().mockResolvedValue([mockPost]),
+      });
+
+      const params = await generateStaticParams();
+
+      expect(params).toEqual([{ id: String(mockPost.id) }]);
+      expect(fetch).toHaveBeenCalledWith("http://localhost:3000/data-fetching-and-caching/api", {
+         cache: "force-cache",
+      });
+   });
 
    it.todo("Deve testar o generateMetadata");
 });
