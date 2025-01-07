@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import { getFixturePostByIndex } from "__tests__/fixtures/posts";
 import Page, {
+   dynamicParams,
    generateMetadata,
    generateStaticParams,
 } from "app/data-fetching-and-caching/reusing-data-across-multiple-functions/[id]/page";
-import { ResolvedMetadata } from "next";
 import { notFound } from "next/navigation";
 
 global.fetch = jest.fn();
@@ -53,7 +53,7 @@ describe("Page: [id]", () => {
 
    it("Deve testar o generateStaticParams corretamente", async () => {
       (fetch as jest.Mock).mockResolvedValue({
-         json: jest.fn().mockResolvedValue([mockPost]),
+         json: jest.fn().mockResolvedValue({ data: [mockPost] }),
       });
 
       const params = await generateStaticParams();
@@ -76,5 +76,20 @@ describe("Page: [id]", () => {
          description: mockPost.content,
          authors: mockPost.author,
       });
+   });
+
+   it("Deve configurar o dynamicParams para nao gerar paginas estaticas sob demanda", () => {
+      /*
+       * dynamicParams: boolean
+       * - true(default) = neste cenario, o nextjs irá gerar slice(0,10) = 10 paginas estaticas
+       *  - E todas as outras serão geradas sob demanda conforme o usuario solicita.
+       *  - Isso é bom para performance, já pensou o next gerar 10000 paginas de uma vez?
+       *
+       * - false = neste cenario, o nextjs irá gerar slice(0,10) = 10 paginas estaticas
+       *  - E caso o usuario tente acessar uma pagina nao gerada ex: 11,
+       *  - O nextjs retornará a pagina 404 not found.
+       *
+       */
+      expect(dynamicParams).toBeFalsy();
    });
 });

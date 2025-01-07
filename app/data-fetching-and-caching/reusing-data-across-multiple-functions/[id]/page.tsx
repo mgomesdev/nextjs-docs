@@ -3,16 +3,16 @@ import PostSchema from "../schemas/PostSchema";
 import { Metadata, ResolvingMetadata } from "next";
 import { Author } from "next/dist/lib/metadata/types/metadata-types";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
    const posts = await fetch("http://localhost:3000/data-fetching-and-caching/api", {
       cache: "force-cache",
-   }).then((resolve) => resolve.json() as Promise<PostSchema[]>);
+   }).then((resolve) => resolve.json() as Promise<{ data: PostSchema[] }>);
 
-   return posts.map((post: PostSchema) => {
-      return {
-         id: String(post.id),
-      };
-   });
+   return posts.data.slice(0, 10).map((post: PostSchema) => ({
+      id: String(post.id),
+   }));
 }
 
 interface GenerateMetadataProps {
@@ -22,7 +22,7 @@ interface GenerateMetadataProps {
 
 export async function generateMetadata(
    { params, searchParams }: GenerateMetadataProps,
-   parent: ResolvingMetadata
+   parent?: ResolvingMetadata
 ): Promise<Metadata> {
    const { id } = await params;
    const post = await getPost(id);
