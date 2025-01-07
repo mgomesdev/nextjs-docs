@@ -91,6 +91,13 @@ describe("Page: [id]", () => {
        *  - O nextjs retornará a pagina 404 not found.
        *
        */
+
+      throw [
+         "Proximos passos",
+         "Terminar de ler a referencia de generateStaticParams (favoritos)",
+         "Criar os testes da pagina NotFound() -> está como TODO no CLI",
+         "Continuar codigos da referencia de reusing-data-across-multiple-functions",
+      ];
       expect(dynamicParams).toBeFalsy();
    });
 });
