@@ -84,6 +84,7 @@ describe("Page: [id]", () => {
        * - true(default) = neste cenario, o nextjs irá gerar slice(0,10) = 10 paginas estaticas
        *  - E todas as outras serão geradas sob demanda conforme o usuario solicita.
        *  - Isso é bom para performance, já pensou o next gerar 10000 paginas de uma vez?
+       *  - Utiliza Streaming Server Rendering (suspense)
        *
        * - false = neste cenario, o nextjs irá gerar slice(0,10) = 10 paginas estaticas
        *  - E caso o usuario tente acessar uma pagina nao gerada ex: 11,
