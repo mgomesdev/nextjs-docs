@@ -92,12 +92,6 @@ describe("Page: [id]", () => {
        *
        */
 
-      throw [
-         "Proximos passos",
-         "Terminar de ler a referencia de generateStaticParams (favoritos)",
-         "Criar os testes da pagina NotFound() -> está como TODO no CLI",
-         "Continuar codigos da referencia de reusing-data-across-multiple-functions",
-      ];
       expect(dynamicParams).toBeFalsy();
    });
 });
