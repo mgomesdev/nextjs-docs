@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Playlists } from "./components/Playlists";
 
-function PageSequentialDataFetching() {
+async function PageSequentialDataFetching() {
    const artist = {
       id: 1,
       name: "artist.name",

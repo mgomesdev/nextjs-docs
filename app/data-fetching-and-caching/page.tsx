@@ -16,6 +16,16 @@ function Page() {
                Reusing Data across multiple function
             </Link>
          </li>
+         <li>
+            <Link href="/data-fetching-and-caching/reusing-data-across-multiple-functions">
+               Parallel and sequential data fetching
+            </Link>
+            <li>
+               <Link href="/data-fetching-and-caching/reusing-data-across-multiple-functions">
+                  Sequential data fetching
+               </Link>
+            </li>
+         </li>
       </ul>
    );
 }
