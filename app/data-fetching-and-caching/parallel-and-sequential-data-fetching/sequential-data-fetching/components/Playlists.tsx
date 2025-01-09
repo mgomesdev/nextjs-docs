@@ -1,11 +1,11 @@
 import PlaylistService from "../services/PlaylistService";
 
 interface PlaylistsProps {
-   id: number;
+   artistID: number;
 }
 
-export const Playlists: React.FC<PlaylistsProps> = async ({ id }) => {
-   const playlists = await PlaylistService.getArtistPlaylists(id);
+async function Playlists({ artistID }: PlaylistsProps) {
+   const playlists = await PlaylistService.getArtistPlaylists(artistID);
 
    return (
       <ul>
@@ -14,4 +14,6 @@ export const Playlists: React.FC<PlaylistsProps> = async ({ id }) => {
          ))}
       </ul>
    );
-};
+}
+
+export default Playlists;
