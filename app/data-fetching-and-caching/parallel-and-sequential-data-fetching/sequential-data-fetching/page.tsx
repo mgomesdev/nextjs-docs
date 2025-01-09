@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Playlists } from "./components/Playlists";
+import Playlists from "./components/Playlists";
 import ArtistService from "./services/ArtistService";
 
 async function PageSequentialDataFetching() {
@@ -10,7 +10,7 @@ async function PageSequentialDataFetching() {
          <h1>{artist?.name}</h1>
 
          <Suspense fallback={<div>Loading...</div>}>
-            <Playlists id={Number(artist?.id)} />
+            <Playlists artistID={Number(artist?.id)} />
          </Suspense>
       </>
    );
