@@ -29,12 +29,12 @@ describe("Sequential Data Fetching: Page", () => {
       expect(playlists).toBeInTheDocument();
    });
 
-   it.skip("Proximos passos", () => {
+   it("Proximos passos", () => {
       throw [
+         "Criar os testes do PlaylistService",
+         "Ler sobre o loading.js",
          "Iniciar o cap. busca de dados paralela",
          "Preparar proximos passos e subir o código",
-         "Atualizar os links da pagina principal",
-         "Atualizar os links do readme",
          "Fazer intervalo 30 min",
       ];
    });

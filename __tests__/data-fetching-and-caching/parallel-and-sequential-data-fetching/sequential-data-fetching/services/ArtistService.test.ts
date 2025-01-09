@@ -9,6 +9,6 @@ describe("ArtistService", () => {
 
       const artist = await ArtistService.getArtist("artist.name1");
 
-      expect(artist).toEqual([{ id: 1, name: "artist.name1" }]);
+      expect(artist).toEqual({ id: 1, name: "artist.name1" });
    });
 });
