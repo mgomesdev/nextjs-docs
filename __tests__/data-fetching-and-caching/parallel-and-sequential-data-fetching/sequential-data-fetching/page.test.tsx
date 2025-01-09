@@ -9,15 +9,12 @@ jest.mock("react", () => ({
 
 jest.mock(
    "../../../../app/data-fetching-and-caching/parallel-and-sequential-data-fetching/sequential-data-fetching/components/Playlists",
-   () => ({
-      Playlists: ({ id }: { id: number }) => <div data-testid="mock-playlists">mock playlists</div>,
-   })
+   () => jest.fn(({ artistID }: { artistID: number }) => <div data-testid="mock-playlists">mock playlists</div>)
 );
 
 describe("Sequential Data Fetching: Page", () => {
    it("Deve renderizar o nome do artista", async () => {
       render(await PageSequentialDataFetching());
-
       expect(screen.getByRole("heading")).toHaveTextContent("artist.name");
    });
 
@@ -34,8 +31,6 @@ describe("Sequential Data Fetching: Page", () => {
 
    it.skip("Proximos passos", () => {
       throw [
-         "Criar os testes do component Playlists",
-         "Criar os testes do PlaylistService",
          "Iniciar o cap. busca de dados paralela",
          "Preparar proximos passos e subir o código",
          "Atualizar os links da pagina principal",
