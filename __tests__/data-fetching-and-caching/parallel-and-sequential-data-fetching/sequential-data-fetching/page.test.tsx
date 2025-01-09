@@ -18,16 +18,6 @@ describe("Sequential Data Fetching: Page", () => {
    it("Deve renderizar o nome do artista", async () => {
       render(await PageSequentialDataFetching());
 
-      throw [
-         "Proximos passos",
-         "Criar o método getArtist(username) e mostrar o nome do artista corretamente",
-         "Criar os testes do component Playlists",
-         "Criar os testes do PlaylistService",
-         "Iniciar o cap. busca de dados paralela",
-         "Preparar proximos passos e subir o código",
-         "Fazer intervalo 30 min",
-      ];
-
       expect(screen.getByRole("heading")).toHaveTextContent("artist.name");
    });
 
@@ -40,5 +30,18 @@ describe("Sequential Data Fetching: Page", () => {
       render(await PageSequentialDataFetching());
       const playlists = screen.getByTestId("mock-playlists");
       expect(playlists).toBeInTheDocument();
+   });
+
+   it("Proximos passos", () => {
+      throw [
+         "Criar o método getArtist(username) e mostrar o nome do artista corretamente",
+         "Criar os testes do component Playlists",
+         "Criar os testes do PlaylistService",
+         "Iniciar o cap. busca de dados paralela",
+         "Preparar proximos passos e subir o código",
+         "Atualizar os links da pagina principal",
+         "Atualizar os links do readme",
+         "Fazer intervalo 30 min",
+      ];
    });
 });
