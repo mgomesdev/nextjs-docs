@@ -17,14 +17,11 @@ function Page() {
             </Link>
          </li>
          <li>
-            <Link href="/data-fetching-and-caching/reusing-data-across-multiple-functions">
-               Parallel and sequential data fetching
+            <strong>Parallel and sequential data fetching</strong>
+
+            <Link href="/data-fetching-and-caching/parallel-and-sequential-data-fetching/sequential-data-fetching">
+               Sequential data fetching
             </Link>
-            <li>
-               <Link href="/data-fetching-and-caching/reusing-data-across-multiple-functions">
-                  Sequential data fetching
-               </Link>
-            </li>
          </li>
       </ul>
    );
