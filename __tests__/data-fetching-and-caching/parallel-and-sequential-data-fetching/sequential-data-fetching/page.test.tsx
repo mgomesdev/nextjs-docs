@@ -28,12 +28,4 @@ describe("Sequential Data Fetching: Page", () => {
       const playlists = screen.getByTestId("mock-playlists");
       expect(playlists).toBeInTheDocument();
    });
-
-   it.skip("Proximos passos", () => {
-      throw [
-         "Iniciar o cap. busca de dados paralela",
-         "Preparar proximos passos e subir o código",
-         "Fazer intervalo 30 min",
-      ];
-   });
 });
