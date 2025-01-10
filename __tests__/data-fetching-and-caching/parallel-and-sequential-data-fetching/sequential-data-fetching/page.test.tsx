@@ -31,8 +31,6 @@ describe("Sequential Data Fetching: Page", () => {
 
    it.skip("Proximos passos", () => {
       throw [
-         "Criar os testes do PlaylistService",
-         "Ler sobre o loading.js",
          "Iniciar o cap. busca de dados paralela",
          "Preparar proximos passos e subir o código",
          "Fazer intervalo 30 min",

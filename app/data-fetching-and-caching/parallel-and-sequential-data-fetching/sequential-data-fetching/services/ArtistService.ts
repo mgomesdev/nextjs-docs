@@ -14,7 +14,9 @@ const ArtistService = {
 
          const result = artist.filter((artist) => artist.name === name);
 
-         return resolve(result.length > 0 ? result[0] : undefined);
+         return setTimeout(() => {
+            resolve(result.length > 0 ? result[0] : undefined);
+         }, 3000);
       });
 
       return artist;
