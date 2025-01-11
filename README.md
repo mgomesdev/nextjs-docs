@@ -4,7 +4,7 @@ O objetivo deste respositório é ter um local onde eu possa realizar todos os m
 
 ### Examples
 
-| Data Fetching and Caching]           | Status         |
+| Data Fetching and Caching          | Status         |
 | ---------------- | ----------------- |
 |       [Fetching data on the client](https://github.com/mgomesdev/nextjs-docs/tree/main/__tests__/data-fetching-and-caching/fetching-data-on-the-client)     | ~~concluído~~           |
 | [Fetching data on the server](https://github.com/mgomesdev/nextjs-docs/tree/main/__tests__/data-fetching-and-caching/fetching-data-on-the-server)        | ~~concluído~~               |
