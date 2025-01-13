@@ -48,7 +48,7 @@ async function getPost(id: string) {
 
    return post;
 }
-interface PageProps extends GenerateMetadataProps {}
+export interface PageProps extends GenerateMetadataProps {}
 
 async function Page({ params }: PageProps) {
    const { id } = await params;

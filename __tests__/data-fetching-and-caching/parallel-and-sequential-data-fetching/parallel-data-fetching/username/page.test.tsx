@@ -1,13 +1,32 @@
+import { render, screen } from "@testing-library/react";
+import ArtistService from "app/data-fetching-and-caching/parallel-and-sequential-data-fetching/parallel-data-fetching/[username]/services/ArtistService";
+import Page from "app/data-fetching-and-caching/parallel-and-sequential-data-fetching/parallel-data-fetching/[username]/page";
+
+global.fetch = jest.fn();
+
 describe("PageParallelDataFetching", () => {
-   it.todo("Deve renderizar o nome do artista");
+   it("Deve renderizar o nome do artista", async () => {
+      jest.spyOn(ArtistService, "getArtist").mockResolvedValue({
+         data: {
+            id: 1,
+            name: "chorao",
+         },
+      });
 
-   it.todo("Deve renderizar os alguns do artista");
+      const params = Promise.resolve({ username: "chorao" });
 
-   it("Proximos passos", () => {
+      render(await Page({ params }));
+
+      expect(screen.getByText("chorao")).toBeInTheDocument();
+   });
+
+   it.todo("Deve renderizar os albums do artista");
+
+   it.skip("Proximos passos", () => {
       throw [
-         "Iniciar o cap. busca de dados paralela",
-         "Criar testes do método getArtist",
-         "Criar testes do método getAlbums",
+         "Criar testes do ArtistServie -> getArtist",
+         "Criar testes do AlbumService -> getAlbums",
+         "Inciar Server actions e mutations",
          "Preparar proximos passos e subir o código",
          "Fazer intervalo 30 min",
       ];
