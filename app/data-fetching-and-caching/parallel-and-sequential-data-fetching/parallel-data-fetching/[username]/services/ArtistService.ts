@@ -1,4 +1,4 @@
-import { url } from "../config";
+import { config } from "../config";
 import ArtistSchema from "../schema/ArtistSchema";
 
 const ArtistService = {
@@ -7,7 +7,7 @@ const ArtistService = {
    ): Promise<{
       data: ArtistSchema;
    }> => {
-      const res = await fetch(`${url}/${username}/api/artist`);
+      const res = await fetch(`${config.url}/${username}/api/artist`);
       return res.json();
    },
 };

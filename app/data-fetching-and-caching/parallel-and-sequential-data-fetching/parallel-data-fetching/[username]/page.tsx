@@ -1,4 +1,5 @@
 import { config } from "./config";
+import AlbumSchema from "./schema/AlbumSchema";
 import ArtistService from "./services/ArtistService";
 
 export async function getAlbums(username: string) {
@@ -12,22 +13,29 @@ export interface PageProps {
 async function Page({ params }: PageProps) {
    const { username } = await params;
    const artistData = ArtistService.getArtist(username);
-   // const albumsData = getAlbums(username);
+   const albumsData = getAlbums(username);
 
-   const [artist] = await Promise.all([artistData]);
+   const [artist, albums] = await Promise.all([artistData, albumsData]);
 
    return (
       <>
          <h1>{artist.data.name}</h1>
+         <Albums albums={albums} />
       </>
    );
 }
 interface AlbumsProps {
-   list: [];
+   albums: AlbumSchema[];
 }
 
-const Albums: React.FC<AlbumsProps> = ({ list }) => {
-   return <></>;
+const Albums: React.FC<AlbumsProps> = ({ albums }) => {
+   return (
+      <>
+         {albums.map((album) => {
+            <h1 key={album.id}>{album.name}</h1>;
+         })}
+      </>
+   );
 };
 
 export default Page;
