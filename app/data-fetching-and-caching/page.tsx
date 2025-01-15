@@ -17,7 +17,7 @@ function Page() {
             </Link>
          </li>
          <li>
-            <strong>Parallel and sequential data fetching</strong>
+            <strong style={{ display: "block" }}>Parallel and sequential data fetching</strong>
 
             <Link href="/data-fetching-and-caching/parallel-and-sequential-data-fetching/sequential-data-fetching">
                Sequential data fetching
