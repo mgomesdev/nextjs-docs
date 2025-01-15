@@ -1,3 +1,5 @@
+"use client";
+
 import create from "../actions";
 
 function Button() {
