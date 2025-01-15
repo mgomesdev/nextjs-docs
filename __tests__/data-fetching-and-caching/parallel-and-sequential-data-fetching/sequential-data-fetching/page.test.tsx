@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import PageSequentialDataFetching from "app/data-fetching-and-caching/parallel-and-sequential-data-fetching/sequential-data-fetching/page";
+import ArtistService from "app/data-fetching-and-caching/parallel-and-sequential-data-fetching/sequential-data-fetching/services/ArtistService";
 import React from "react";
 
 jest.mock("react", () => ({
@@ -14,6 +15,12 @@ jest.mock(
 
 describe("Sequential Data Fetching: Page", () => {
    it("Deve renderizar o nome do artista", async () => {
+      const artist = {
+         id: 1,
+         name: "artist.name1",
+      };
+      jest.spyOn(ArtistService, "getArtist").mockResolvedValue(artist);
+
       render(await PageSequentialDataFetching());
       expect(screen.getByRole("heading")).toHaveTextContent("artist.name");
    });
