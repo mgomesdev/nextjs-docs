@@ -1,26 +1,25 @@
-import { config } from "./config";
 import AlbumSchema from "./schema/AlbumSchema";
+import AlbumService from "./services/AlbumService";
 import ArtistService from "./services/ArtistService";
-
-export async function getAlbums(username: string) {
-   const res = await fetch(`${config.url}/${username}/api/albums`);
-   return res.json();
-}
 
 export interface PageProps {
    params: Promise<{ username: string }>;
 }
 async function Page({ params }: PageProps) {
    const { username } = await params;
+
    const artistData = ArtistService.getArtist(username);
-   const albumsData = getAlbums(username);
+   const albumsData = AlbumService.getAlbums(username);
 
    const [artist, albums] = await Promise.all([artistData, albumsData]);
 
+   console.log(artist);
+   console.log(albums);
+
    return (
       <>
-         <h1>{artist.data.name}</h1>
-         <Albums albums={albums} />
+         <h1>{artist.data?.name}</h1>
+         <Albums albums={albums.data} />
       </>
    );
 }
