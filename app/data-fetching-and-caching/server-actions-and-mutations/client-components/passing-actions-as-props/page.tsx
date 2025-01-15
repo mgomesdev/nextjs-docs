@@ -1,9 +1,12 @@
+"use client";
+
+import updateItemAction from "./actions";
 import ClientComponent from "./components/ClientComponent";
 
 function PagePassingActionsAsProps() {
    return (
       <>
-         <ClientComponent />
+         <ClientComponent updateItemAction={updateItemAction} />
       </>
    );
 }

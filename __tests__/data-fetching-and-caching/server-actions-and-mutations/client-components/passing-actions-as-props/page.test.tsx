@@ -5,6 +5,6 @@ describe("Passing-actions-as-props: page", () => {
    it("Deve renderizar o ClientComponent", () => {
       render(<PagePassingActionsAsProps />);
 
-      expect(screen.getByTestId("client-component")).toBeInTheDocument;
+      expect(screen.getByTestId("form-client-component")).toBeInTheDocument;
    });
 });
