@@ -44,11 +44,16 @@ describe("PageParallelDataFetching", () => {
       expect(screen.getByText("chorao")).toBeInTheDocument();
    });
 
-   it.todo("Deve renderizar os albums do artista");
+   it("Deve renderizar os albums do artista", async () => {
+      const params = Promise.resolve({ username: "chorao" });
 
-   it.skip("Proximos passos", () => {
+      render(await Page({ params }));
+
+      expect(screen.getAllByRole("heading").length).toBeGreaterThanOrEqual(0);
+   });
+
+   it("Proximos passos", () => {
       throw [
-         "Criar os testes de page -> o page não está conseguindo renderizar os dados na tela -> erro no nextjs",
          "Inciar Server actions e mutations",
          "Preparar proximos passos e subir o código",
          "Fazer intervalo 30 min",

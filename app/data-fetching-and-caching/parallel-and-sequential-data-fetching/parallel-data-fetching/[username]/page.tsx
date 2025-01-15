@@ -13,9 +13,6 @@ async function Page({ params }: PageProps) {
 
    const [artist, albums] = await Promise.all([artistData, albumsData]);
 
-   console.log(artist);
-   console.log(albums);
-
    return (
       <>
          <h1>{artist.data?.name}</h1>
@@ -30,9 +27,9 @@ interface AlbumsProps {
 const Albums: React.FC<AlbumsProps> = ({ albums }) => {
    return (
       <>
-         {albums.map((album) => {
-            <h1 key={album.id}>{album.name}</h1>;
-         })}
+         {albums.map((album) => (
+            <h1 key={album.id}>{album.name}</h1>
+         ))}
       </>
    );
 };

@@ -8,6 +8,7 @@ const ArtistService = {
       data: ArtistSchema;
    }> => {
       const res = await fetch(`${config.url}/${username}/api/artist`);
+
       return res.json();
    },
 };
