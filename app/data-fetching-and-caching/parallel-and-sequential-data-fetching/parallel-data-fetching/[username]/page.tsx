@@ -1,8 +1,8 @@
-import { url } from "./config";
+import { config } from "./config";
 import ArtistService from "./services/ArtistService";
 
 export async function getAlbums(username: string) {
-   const res = await fetch(`${url}/${username}/api/albums`);
+   const res = await fetch(`${config.url}/${username}/api/albums`);
    return res.json();
 }
 

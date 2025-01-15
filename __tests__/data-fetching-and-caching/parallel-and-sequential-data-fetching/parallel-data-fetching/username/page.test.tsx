@@ -24,7 +24,6 @@ describe("PageParallelDataFetching", () => {
 
    it.skip("Proximos passos", () => {
       throw [
-         "Criar testes do ArtistServie -> getArtist",
          "Criar testes do AlbumService -> getAlbums",
          "Inciar Server actions e mutations",
          "Preparar proximos passos e subir o código",
