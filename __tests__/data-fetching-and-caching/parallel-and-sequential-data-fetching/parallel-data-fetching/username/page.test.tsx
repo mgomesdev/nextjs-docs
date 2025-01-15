@@ -25,6 +25,8 @@ describe("PageParallelDataFetching", () => {
    it.skip("Proximos passos", () => {
       throw [
          "Criar testes do AlbumService -> getAlbums",
+         "Criar os testes de route handler -> albums",
+         "Criar os testes de page -> albumservice",
          "Inciar Server actions e mutations",
          "Preparar proximos passos e subir o código",
          "Fazer intervalo 30 min",

@@ -3,22 +3,24 @@
  *
  */
 
-import { GET } from "app/data-fetching-and-caching/parallel-and-sequential-data-fetching/parallel-data-fetching/[username]/api/artist/route";
+import { GET } from "app/data-fetching-and-caching/parallel-and-sequential-data-fetching/parallel-data-fetching/[username]/api/albums/route";
 import { config } from "app/data-fetching-and-caching/parallel-and-sequential-data-fetching/parallel-data-fetching/[username]/config";
 
 jest.mock(
-   "../../../../../../../app/data-fetching-and-caching/parallel-and-sequential-data-fetching/parallel-data-fetching/[username]/api/artist/route"
+   "../../../../../../../app/data-fetching-and-caching/parallel-and-sequential-data-fetching/parallel-data-fetching/[username]/api/albums/route"
 );
 
-describe("ArtistRoute", () => {
-   const mockArtist = [
+describe("AlbumsRoute", () => {
+   const mockAlbums = [
       {
          id: 1,
-         name: "chorao",
+         name: "Album1",
+         artist: "chorao",
       },
       {
          id: 2,
-         name: "Renato Russo",
+         name: "Album2",
+         artist: "chorao",
       },
    ];
 
@@ -28,12 +30,12 @@ describe("ArtistRoute", () => {
       const mockRequest = new Request(mockUrl);
 
       (GET as jest.Mock).mockResolvedValue({
-         data: mockArtist,
+         data: mockAlbums,
       });
 
-      const getArtist = await GET(mockRequest, { params: mockParams });
+      const getAlbums = await GET(mockRequest, { params: mockParams });
 
-      expect(getArtist).toEqual({ data: mockArtist });
+      expect(getAlbums).toEqual({ data: mockAlbums });
       expect(GET).toHaveBeenCalled();
    });
 });
