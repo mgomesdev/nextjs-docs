@@ -2,7 +2,7 @@
  * @jest-environment node
  */
 
-import { getFixturePostByIndex } from "__tests__/fixtures/posts";
+import { getFixturePostByIndex } from "__fixtures__/posts";
 import { GET } from "app/data-fetching-and-caching/reusing-data-across-multiple-functions/[id]/api/route";
 
 global.fetch = jest.fn();

@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Page from "app/data-fetching-and-caching/page";
+import Page from "app/page";
 
 describe("Deve renderizar o Page corretamente", () => {
    it("Deve renderizar os links corretamente", () => {

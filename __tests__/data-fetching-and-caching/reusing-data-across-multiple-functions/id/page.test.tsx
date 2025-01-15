@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { getFixturePostByIndex } from "__tests__/fixtures/posts";
+import { getFixturePostByIndex } from "__fixtures__/posts";
 import Page, {
    dynamicParams,
    generateMetadata,

@@ -1,11 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import updateItemAction from "app/data-fetching-and-caching/server-actions-and-mutations/client-components/passing-actions-as-props/actions";
-import ClientComponent from "app/data-fetching-and-caching/server-actions-and-mutations/client-components/passing-actions-as-props/components/ClientComponent";
+import ClientComponent from "app/server-actions-and-mutations/client-components/passing-actions-as-props/components/ClientComponent";
 
-jest.mock(
-   "../../../../../../app/data-fetching-and-caching/server-actions-and-mutations/client-components/passing-actions-as-props/actions",
-   () => ({ default: jest.fn() })
-);
+jest.mock("../../../../../app/server-actions-and-mutations/client-components/passing-actions-as-props/actions", () => ({
+   default: jest.fn(),
+}));
 
 describe("ClientComponent", () => {
    beforeAll(() => {

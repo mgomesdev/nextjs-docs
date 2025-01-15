@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 
-import RootLayout from "app/data-fetching-and-caching/layout";
+import RootLayout from "app/layout";
 
 describe("Layout", () => {
    beforeEach(() => {

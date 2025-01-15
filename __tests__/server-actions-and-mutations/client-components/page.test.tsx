@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import PageSVActionsClientComponent from "app/data-fetching-and-caching/server-actions-and-mutations/client-components/page";
+import PageSVActionsClientComponent from "app/server-actions-and-mutations/client-components/page";
 
 describe("SVActions e Mutations -> Client-Components: page", () => {
    it("Deve renderizar o button", () => {

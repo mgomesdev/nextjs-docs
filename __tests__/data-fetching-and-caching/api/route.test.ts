@@ -3,7 +3,7 @@
  */
 
 import { GET } from "app/data-fetching-and-caching/api/route";
-import { getFixturePosts } from "../../fixtures/posts";
+import { getFixturePosts } from "../../../__fixtures__/posts";
 
 global.fetch = jest.fn();
 

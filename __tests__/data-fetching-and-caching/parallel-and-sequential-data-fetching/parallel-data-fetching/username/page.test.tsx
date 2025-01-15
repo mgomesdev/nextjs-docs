@@ -51,12 +51,4 @@ describe("PageParallelDataFetching", () => {
 
       expect(screen.getAllByRole("heading").length).toBeGreaterThanOrEqual(0);
    });
-
-   it("Proximos passos", () => {
-      throw [
-         "Inciar Server actions e mutations",
-         "Preparar proximos passos e subir o código",
-         "Fazer intervalo 30 min",
-      ];
-   });
 });

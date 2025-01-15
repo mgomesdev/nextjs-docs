@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import { getFixturePosts } from "../../fixtures/posts";
+import { getFixturePosts } from "../../../__fixtures__/posts";
 import Page from "app/data-fetching-and-caching/fetching-data-on-the-client/page";
 
 global.fetch = jest.fn();
