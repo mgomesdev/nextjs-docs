@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import PageInvoices from "app/server-actions-and-mutations/examples/forms/Invoices/page";
-import { useFormStatus } from "react-dom";
 
 jest.mock("../../../../../app/server-actions-and-mutations/examples/forms/Invoices/actions", () => ({
    createInvoice: jest.fn(),
