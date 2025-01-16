@@ -20,5 +20,10 @@ describe("Deve renderizar o Page corretamente", () => {
       expect(links[3]).toHaveTextContent("Sequential data fetching");
       expect(links[4]).toHaveAttribute("href", "/server-actions-and-mutations/examples/forms/invoices");
       expect(links[4]).toHaveTextContent("Form -> Invoices");
+      expect(links[5]).toHaveAttribute(
+         "href",
+         "/server-actions-and-mutations/examples/forms/programmatic-form-submission"
+      );
+      expect(links[5]).toHaveTextContent("Programmatic Form Submission");
    });
 });

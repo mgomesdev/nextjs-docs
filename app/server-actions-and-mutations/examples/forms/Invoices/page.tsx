@@ -1,5 +1,5 @@
 import { createInvoice } from "./actions";
-import SubmitButton from "../components/SubmitButton";
+import SubmitButton from "./components/SubmitButton";
 
 function PageInvoices() {
    const handleCreateInvoice = createInvoice.bind(null, { customerID: 1 });

@@ -27,6 +27,9 @@ function Page() {
          <li>
             <strong style={{ display: "block" }}>Server Actions and Mutations</strong>.
             <Link href="/server-actions-and-mutations/examples/forms/invoices">Form {"->"} Invoices</Link>
+            <Link href="/server-actions-and-mutations/examples/forms/programmatic-form-submission">
+               Programmatic Form Submission
+            </Link>
          </li>
       </ul>
    );
