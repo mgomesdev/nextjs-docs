@@ -18,5 +18,7 @@ describe("Deve renderizar o Page corretamente", () => {
          "/data-fetching-and-caching/parallel-and-sequential-data-fetching/sequential-data-fetching"
       );
       expect(links[3]).toHaveTextContent("Sequential data fetching");
+      expect(links[4]).toHaveAttribute("href", "/server-actions-and-mutations/examples/forms/invoices");
+      expect(links[4]).toHaveTextContent("Form -> Invoices");
    });
 });

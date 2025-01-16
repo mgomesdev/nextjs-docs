@@ -23,6 +23,11 @@ function Page() {
                Sequential data fetching
             </Link>
          </li>
+
+         <li>
+            <strong style={{ display: "block" }}>Server Actions and Mutations</strong>.
+            <Link href="/server-actions-and-mutations/examples/forms/invoices">Form {"->"} Invoices</Link>
+         </li>
       </ul>
    );
 }
